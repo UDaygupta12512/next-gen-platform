@@ -38,8 +38,8 @@ interface PricingCardProps {
     tier: Tier,
     refs: {
       amountRef: React.RefObject<HTMLSpanElement | null>;
-      perYearRef: React.RefObject<HTMLSpanElement | null>;
-      savingsRef: React.RefObject<HTMLSpanElement | null>;
+      perYearRef: React.RefObject<HTMLDivElement | null>;
+      savingsRef: React.RefObject<HTMLDivElement | null>;
     }
   ) => void;
 }
@@ -50,8 +50,8 @@ const PricingCard = memo(function PricingCard({
 }: PricingCardProps) {
   const meta = TIER_META[tier];
   const amountRef = useRef<HTMLSpanElement>(null);
-  const perYearRef = useRef<HTMLSpanElement>(null);
-  const savingsRef = useRef<HTMLSpanElement>(null);
+  const perYearRef = useRef<HTMLDivElement>(null);
+  const savingsRef = useRef<HTMLDivElement>(null);
 
   const initial = computePrice(tier, 'USD', 'monthly');
 
@@ -305,8 +305,8 @@ export default function Pricing() {
       Tier,
       {
         amountRef: React.RefObject<HTMLSpanElement | null>;
-        perYearRef: React.RefObject<HTMLSpanElement | null>;
-        savingsRef: React.RefObject<HTMLSpanElement | null>;
+        perYearRef: React.RefObject<HTMLDivElement | null>;
+        savingsRef: React.RefObject<HTMLDivElement | null>;
       }
     >
   >(new Map());
@@ -317,8 +317,8 @@ export default function Pricing() {
       tier: Tier,
       refs: {
         amountRef: React.RefObject<HTMLSpanElement | null>;
-        perYearRef: React.RefObject<HTMLSpanElement | null>;
-        savingsRef: React.RefObject<HTMLSpanElement | null>;
+        perYearRef: React.RefObject<HTMLDivElement | null>;
+        savingsRef: React.RefObject<HTMLDivElement | null>;
       }
     ) => {
       priceRefs.current.set(tier, refs);
